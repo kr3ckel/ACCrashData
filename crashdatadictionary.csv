@@ -36,7 +36,6 @@ INJURY,Injury Indicator,BOOLEAN,,
 INJURY_OR_FATAL,At least 1 Person Was Injured or Killed in the Crash,BOOLEAN,,
 INTERSECTION,Intersection Indicator,BOOLEAN,,
 INTERSTATE,Non-Turnpike Interstate Indicator,BOOLEAN,,
-LANE_CLOSED,Was there a lane closure? (Y/N),BOOLEAN,,
 LIMIT_65MPH,65MPH Speed Limit Indicator,BOOLEAN,,
 LOCAL_ROAD,Local Road Indicator,BOOLEAN,,
 LOCAL_ROAD_ONLY,Local Road Only Indicator,BOOLEAN,,
@@ -69,7 +68,6 @@ STOP_CONTROLLED_INT,Stop Controlled Intersection Indicator,BOOLEAN,,
 SUDDEN_DEER,Sudden Deer Indicator,BOOLEAN,,
 SV_RUN_OFF_RD,Single Vehicle Run Off Road Indicator,BOOLEAN,,
 TAILGATING,Tailgating Indicator,BOOLEAN,,
-TFC_DETOUR_IND,Was the Traffic Detoured? (Y/N),BOOLEAN,,
 TRAIN,Train Indicator,BOOLEAN,,
 TRAIN_TROLLEY,Train or Trolley Indicator,BOOLEAN,,
 TROLLEY,Trolley Indicator,BOOLEAN,,
@@ -81,16 +79,7 @@ UNSIGNALIZED_INT,Unsignalized Intersection Indicator,BOOLEAN,,
 VEHICLE_FAILURE,Vehicle Failure Indicator,BOOLEAN,,
 VEHICLE_TOWED,Vehicle Towed Indicator,BOOLEAN,,
 WET_ROAD,Wet Road Indicator,BOOLEAN,,
-WK_ZONE_IND,Did the crash occur in a work zone (Y/N),BOOLEAN,,
 WORK_ZONE,Work Zone Indicator,BOOLEAN,,
-WORKERS_PRES,Were construction personnel present? (Y/N),BOOLEAN,,
-WZ_CLOSE_DETOUR,Was traffic rerouted due to work zone?(Y/N),BOOLEAN,,
-WZ_FLAGGER,Did Work zone have a flagman? (Y/N),BOOLEAN,,
-WZ_LAW_OFFCR_IND,Did Work zone have a patrolman? (Y/N),BOOLEAN,,
-WZ_LN_CLOSURE,Did Work zone have a lane closure? (Y/N),BOOLEAN,,
-WZ_MOVING,Was there moving work in the zone? (Y/N),BOOLEAN,,
-WZ_OTHER,Was this a special type of work zone? (Y/N),BOOLEAN,,
-WZ_SHLDER_MDN,Was a median/shoulder in the zone? (Y/N),BOOLEAN,,
 COLLISION_TYPE,Collision category that defines the crash,FACTOR,0,Non collision
 COLLISION_TYPE,Collision category that defines the crash,FACTOR,1,Rear-end
 COLLISION_TYPE,Collision category that defines the crash,FACTOR,2,Head-on
@@ -111,17 +100,17 @@ DAY_OF_WEEK,Day of the Week code when crash occurred,FACTOR,6,Friday
 DAY_OF_WEEK,Day of the Week code when crash occurred,FACTOR,7,Saturday
 DISTRICT,District Number where crash occurred,FACTOR,11,"District 11 (Allegheny, Beaver, Lawrence Counties)"
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,1,Daylight
-ILLUMINATION,Code that defines lighting at crash scene,FACTOR,2,Dark – no street lights
-ILLUMINATION,Code that defines lighting at crash scene,FACTOR,3,Dark – street lights
+ILLUMINATION,Code that defines lighting at crash scene,FACTOR,2,Dark _ no street lights
+ILLUMINATION,Code that defines lighting at crash scene,FACTOR,3,Dark _ street lights
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,4,Dusk
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,5,Dawn
-ILLUMINATION,Code that defines lighting at crash scene,FACTOR,6,Dark – unknown roadway lighting
+ILLUMINATION,Code that defines lighting at crash scene,FACTOR,6,Dark _ unknown roadway lighting
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,8,Other
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,9,Unknown (expired)
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,0,Mid-block
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,1,Four way intersection
-INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,2,“T” intersection
-INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,3,“Y” intersection
+INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,2,√íT√ì intersection
+INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,3,√íY√ì intersection
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,4,Traffic circle or Round About
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,5,Multi-leg intersection
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,6,On ramp
@@ -130,6 +119,8 @@ INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,8,Crossover
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,9,Railroad crossing
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,10,Other
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,99,Unknown (expired)
+LANE_CLOSED,Was there a lane closure? (Y/N),FACTOR,Y,1
+LANE_CLOSED,Was there a lane closure? (Y/N),FACTOR,N,0
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,1,North
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,2,South
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,3,East
@@ -166,14 +157,14 @@ RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,4,"Slag, Gravel, or S
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,5,Dirt
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,8,Other
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,9,Unknown
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,1,On roadway
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,2,Shoulder
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,3,Median
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,4,Roadside (off trafficway; on vehicle area)
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,5,Outside trafficway (in area not meant for vehicles)
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,6,In parking lane
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,7,Gore (intersection of ramp and highway)
-RELATION_TO_ROAD,Code for the crash’s relativity to the road,FACTOR,9,Unknown
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,1,On roadway
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,2,Shoulder
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,3,Median
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,4,Roadside (off trafficway; on vehicle area)
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,5,Outside trafficway (in area not meant for vehicles)
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,6,In parking lane
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,7,Gore (intersection of ramp and highway)
+RELATION_TO_ROAD,Code for the crash√ïs relativity to the road,FACTOR,9,Unknown
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,0,Dry
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,1,Wet
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,2,Sand/ mud/ dirt/ oil/ or gravel
@@ -181,7 +172,7 @@ ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,3,Snow covered
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,4,Slush
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,5,Ice
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,6,Ice Patches
-ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,7,Water – standing or moving
+ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,7,Water _ standing or moving
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,8,Other
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,9,Unknown (expired)
 ROAD_OWNER,Road OWNER,FACTOR,1,Interstate - non turnpike
@@ -221,6 +212,8 @@ TCD_TYPE,Code that defines the Traffic Control Device,FACTOR,6,Passive RR crossi
 TCD_TYPE,Code that defines the Traffic Control Device,FACTOR,7,Police officer or flagman
 TCD_TYPE,Code that defines the Traffic Control Device,FACTOR,8,Other Type TCD
 TCD_TYPE,Code that defines the Traffic Control Device,FACTOR,9,Unknown
+TFC_DETOUR_IND,Was the Traffic Detoured? (Y/N),FACTOR,Y,1
+TFC_DETOUR_IND,Was the Traffic Detoured? (Y/N),FACTOR,N,0
 URBAN_RURAL,Code to classify crash as Urban or Rural,FACTOR,1,RURAL
 URBAN_RURAL,Code to classify crash as Urban or Rural,FACTOR,2,"SMALL URBAN AREA (pop. To 49,999)"
 URBAN_RURAL,Code to classify crash as Urban or Rural,FACTOR,3,"URBANIZED AREA (pop. 50,000 to 199,999)"
@@ -234,6 +227,8 @@ WEATHER,Code for the weather type at time of crash,FACTOR,6,Rain and fog
 WEATHER,Code for the weather type at time of crash,FACTOR,7,Sleet and fog
 WEATHER,Code for the weather type at time of crash,FACTOR,8,Other
 WEATHER,Code for the weather type at time of crash,FACTOR,9,Unknown
+WK_ZONE_IND,Did the crash occur in a work zone (Y/N),FACTOR,Y,1
+WK_ZONE_IND,Did the crash occur in a work zone (Y/N),FACTOR,N,0
 WORK_ZONE_LOC,The Work Zone Location Code,FACTOR,1,Before the 1st work zone warning sign
 WORK_ZONE_LOC,The Work Zone Location Code,FACTOR,2,Advance warning area
 WORK_ZONE_LOC,The Work Zone Location Code,FACTOR,3,Transition area
@@ -244,6 +239,22 @@ WORK_ZONE_TYPE,Code to define the type of Work Zone,FACTOR,1,Construction
 WORK_ZONE_TYPE,Code to define the type of Work Zone,FACTOR,2,Maintenance
 WORK_ZONE_TYPE,Code to define the type of Work Zone,FACTOR,3,Utility company
 WORK_ZONE_TYPE,Code to define the type of Work Zone,FACTOR,8,Other
+WORKERS_PRES,Were construction personnel present? (Y/N),FACTOR,Y,1
+WORKERS_PRES,Were construction personnel present? (Y/N),FACTOR,N,0
+WZ_CLOSE_DETOUR,Was traffic rerouted due to work zone?(Y/N),FACTOR,Y,1
+WZ_CLOSE_DETOUR,Was traffic rerouted due to work zone?(Y/N),FACTOR,N,0
+WZ_FLAGGER,Did Work zone have a flagman? (Y/N),FACTOR,Y,1
+WZ_FLAGGER,Did Work zone have a flagman? (Y/N),FACTOR,N,0
+WZ_LAW_OFFCR_IND,Did Work zone have a patrolman? (Y/N),FACTOR,Y,1
+WZ_LAW_OFFCR_IND,Did Work zone have a patrolman? (Y/N),FACTOR,N,0
+WZ_LN_CLOSURE,Did Work zone have a lane closure? (Y/N),FACTOR,Y,1
+WZ_LN_CLOSURE,Did Work zone have a lane closure? (Y/N),FACTOR,N,0
+WZ_MOVING,Was there moving work in the zone? (Y/N),FACTOR,Y,1
+WZ_MOVING,Was there moving work in the zone? (Y/N),FACTOR,N,0
+WZ_OTHER,Was this a special type of work zone? (Y/N),FACTOR,Y,1
+WZ_OTHER,Was this a special type of work zone? (Y/N),FACTOR,N,0
+WZ_SHLDER_MDN,Was a median/shoulder in the zone? (Y/N),FACTOR,Y,1
+WZ_SHLDER_MDN,Was a median/shoulder in the zone? (Y/N),FACTOR,N,0
 ADJ_RDWY_SEQ,Adjusted Roadway Sequence Number,NUMBER,,
 AUTOMOBILE_COUNT,Total Amount of Automobiles Involved,NUMBER,,
 BELTED_DEATH_COUNT,Total Deaths of belted occupants,NUMBER,,
@@ -255,8 +266,8 @@ BUS_COUNT,Total amount of Buses involved,NUMBER,,
 COMM_VEH_COUNT,Total Commercial vehicles involved,NUMBER,,
 CRASH_CRN,Crash Record Number,NUMBER,,
 CRN,Crash Record Number,NUMBER,,
-DEC_LAT,Decimal Latitude for SR’s,NUMBER,Degrees.Decimal Degrees,
-DEC_LONG,Decimal Longitude for SR’s,NUMBER,Degrees.Decimal Degrees,
+DEC_LAT,Decimal Latitude for SR√ïs,NUMBER,Degrees.Decimal Degrees,
+DEC_LONG,Decimal Longitude for SR√ïs,NUMBER,Degrees.Decimal Degrees,
 DRIVER_COUNT_16YR,Total amount of 16 year old drivers,NUMBER,,
 DRIVER_COUNT_17YR,Total amount of 17 year old drivers,NUMBER,,
 DRIVER_COUNT_65_74YR,Total amount of 65 to 74 year old drivers,NUMBER,,
@@ -265,6 +276,7 @@ FATAL_COUNT,Total amount of fatalities involved,NUMBER,,
 FLAG_CRN,Crash Record Number,NUMBER,,
 HEAVY_TRUCK_COUNT,Total amount of Heavy Trucks involved,NUMBER,,
 HOUR_OF_DAY,The hour of Day when the crash occurred,NUMBER,,
+ILLEGAL_DRUG_RELATED,At Least 1 Driver or Pedestrian had reported or suspected Illegal Drug Use,NUMBER,,
 IMPAIRED_DRIVER,At least One Driver was Impaired by Drugs or Alcohol,NUMBER,,
 INJURY_COUNT,Total count of all injuries sustained,NUMBER,,
 MAJ_INJ_COUNT,Total amount of Major Injuries involved,NUMBER,,
@@ -288,7 +300,6 @@ UNK_INJ_DEG_COUNT,No. of injuries with unknown severity,NUMBER,,
 UNK_INJ_PER_COUNT,No. of people that are unknown if injured,NUMBER,,
 VAN_COUNT,Total amount of vans involved,NUMBER,,
 VEHICLE_COUNT,Total amount of all vehicles involved,NUMBER,,
-ILLEGAL_DRUG_RELATED,At Least 1 Driver or Pedestrian had reported or suspected Illegal Drug Use,NUMBER,,
 ACCESS_CTRL,Access Control Code,TEXT,No code provided,
 CONS_ZONE_SPD_LIM,Speed limit for the Construction Zone,TEXT,,
 CRASH_MONTH,Month when the crash occurred,TEXT,,
