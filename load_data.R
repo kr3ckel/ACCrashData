@@ -1,24 +1,53 @@
-library(RCurl);library(dplyr)
-
+library(RCurl);library(dplyr);
 #Use getURL to read the various years of data into text variables
-crash_2014_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/a1d00c8a-18dd-43ee-aa13-c2998ceb76ad/download/2014alcocrash.csv")
-crash_2013_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/eb54323c-164b-4010-a78f-2dba4d382604/download/2013alcocrash.csv")
-crash_2012_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/bcd2e0a7-d059-4ec8-9d5d-3d293aadd4c4/download/2012alcocrash.csv")
-crash_2011_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/0950f9ac-fe2f-4441-a355-d60ee7653f8c/download/2011alcocrash.csv")
-crash_2010_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/93b3d18c-680f-4a1c-9896-72b446557505/download/2010alcocrash.csv")
-crash_2009_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/4cccbf70-5709-4630-a0cd-cc4a3ed69be7/download/2009alcocrash.csv")
-crash_2008_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/92608ca3-3a44-4fe8-af1a-967cfe8bc29d/download/2008alcocrash.csv")
-crash_2007_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/1c7ce0ad-40d3-47e4-b654-6a6bdbfeca2c/download/2007alcocrash.csv")
-crash_2006_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/01860f81-dd89-465a-ab73-1edc21858303/download/2006alcocrash.csv")
-crash_2005_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/e6a24c09-c381-430b-b8ff-3ec5611538f5/download/2005alcocrash.csv")
-crash_2004_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/17012686-77d8-477b-b034-5b4a4715ec53/download/2004alcocrash.csv")
-metadata_text <- getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/12d9e6e1-3657-4cad-a430-119d34b1a5b2/download/crashdatadictionary.csv")
+crash_data <- read.csv(text = paste(getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/a1d00c8a-18dd-43ee-aa13-c2998ceb76ad/download/2014alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/eb54323c-164b-4010-a78f-2dba4d382604/download/2013alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/bcd2e0a7-d059-4ec8-9d5d-3d293aadd4c4/download/2012alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/0950f9ac-fe2f-4441-a355-d60ee7653f8c/download/2011alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/93b3d18c-680f-4a1c-9896-72b446557505/download/2010alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/4cccbf70-5709-4630-a0cd-cc4a3ed69be7/download/2009alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/92608ca3-3a44-4fe8-af1a-967cfe8bc29d/download/2008alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/1c7ce0ad-40d3-47e4-b654-6a6bdbfeca2c/download/2007alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/01860f81-dd89-465a-ab73-1edc21858303/download/2006alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/e6a24c09-c381-430b-b8ff-3ec5611538f5/download/2005alcocrash.csv"),
+                    getURL("https://data.wprdc.org/dataset/3130f583-9499-472b-bb5a-f63a6ff6059a/resource/17012686-77d8-477b-b034-5b4a4715ec53/download/2004alcocrash.csv"))) %>% tbl_df
+#I haven't figured out how to link directly to github, so download the csv on the next line and save it to downloads
+#metadata <- getURL("https://raw.githubusercontent.com/kr3ckel/ACCrashData/master/crashdatadictionary.csv")
+crash_metadata <- read.csv("~/Downloads/crashdatadictionary.csv") %>% tbl_df
 
-# bind all of the rows together
-crash_data  <- bind_rows(read.csv(text = crash_2014_text), read.csv(text = crash_2013_text), read.csv(text = crash_2012_text), read.csv(text = crash_2011_text),
-                        read.csv(text = crash_2010_text), read.csv(text = crash_2009_text), read.csv(text = crash_2008_text), read.csv(text = crash_2007_text),
-                        read.csv(text = crash_2006_text), read.csv(text = crash_2005_text), read.csv(text = crash_2004_text)) %>% tbl_df()
+#This performs a join to each of the factor variables so that they become human readable (or in some cases are translated from Y/N to 0,1)
+crash_data <- crash_data %>% mutate(COLLISION_TYPE = as.character(COLLISION_TYPE)) %>% left_join(crash_metadata %>% filter(Column.Name == 'COLLISION_TYPE') %>% select(Code,Readable), by = c('COLLISION_TYPE'='Code')) %>% mutate(COLLISION_TYPE = Readable,Readable = NULL)
+crash_data <- crash_data %>% mutate(DAY_OF_WEEK = as.character(DAY_OF_WEEK)) %>% left_join(crash_metadata %>% filter(Column.Name == 'DAY_OF_WEEK') %>% select(Code,Readable), by = c('DAY_OF_WEEK'='Code')) %>% mutate(DAY_OF_WEEK = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(DISTRICT = as.factor(DISTRICT)) %>%left_join(crash_metadata %>% filter(Column.Name == 'DISTRICT') %>% select(Code,Readable), by = c('DISTRICT'='Code')) %>% mutate(DISTRICT = Readable,Readable = NULL)
+crash_data <- crash_data %>% mutate(ILLUMINATION = as.factor(ILLUMINATION)) %>%left_join(crash_metadata %>% filter(Column.Name == 'ILLUMINATION') %>% select(Code,Readable), by = c('ILLUMINATION'='Code')) %>% mutate(ILLUMINATION = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(INTERSECT_TYPE = as.factor(INTERSECT_TYPE)) %>%left_join(crash_metadata %>% filter(Column.Name == 'INTERSECT_TYPE') %>% select(Code,Readable), by = c('INTERSECT_TYPE'='Code')) %>% mutate(INTERSECT_TYPE = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(LN_CLOSE_DIR = as.factor(LN_CLOSE_DIR)) %>%left_join(crash_metadata %>% filter(Column.Name == 'LN_CLOSE_DIR') %>% select(Code,Readable), by = c('LN_CLOSE_DIR'='Code')) %>% mutate(LN_CLOSE_DIR = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(LOCATION_TYPE = as.factor(as.numeric(LOCATION_TYPE))) %>%left_join(crash_metadata %>% filter(Column.Name == 'LOCATION_TYPE') %>% select(Code,Readable), by = c('LOCATION_TYPE'='Code')) %>% mutate(LOCATION_TYPE = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(MAX_SEVERITY_LEVEL = as.factor(MAX_SEVERITY_LEVEL)) %>%left_join(crash_metadata %>% filter(Column.Name == 'MAX_SEVERITY_LEVEL') %>% select(Code,Readable), by = c('MAX_SEVERITY_LEVEL'='Code')) %>% mutate(MAX_SEVERITY_LEVEL = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(RDWY_ORIENT = as.factor(RDWY_ORIENT)) %>%left_join(crash_metadata %>% filter(Column.Name == 'RDWY_ORIENT') %>% select(Code,Readable), by = c('RDWY_ORIENT'='Code')) %>% mutate(RDWY_ORIENT = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(RDWY_SURF_TYPE_CD = as.factor(RDWY_SURF_TYPE_CD)) %>%left_join(crash_metadata %>% filter(Column.Name == 'RDWY_SURF_TYPE_CD') %>% select(Code,Readable), by = c('RDWY_SURF_TYPE_CD'='Code')) %>% mutate(RDWY_SURF_TYPE_CD = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(RELATION_TO_ROAD = as.factor(RELATION_TO_ROAD)) %>%left_join(crash_metadata %>% filter(Column.Name == 'RELATION_TO_ROAD') %>% select(Code,Readable), by = c('RELATION_TO_ROAD'='Code')) %>% mutate(RELATION_TO_ROAD = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(ROAD_CONDITION = as.factor(ROAD_CONDITION)) %>%left_join(crash_metadata %>% filter(Column.Name == 'ROAD_CONDITION') %>% select(Code,Readable), by = c('ROAD_CONDITION'='Code')) %>% mutate(ROAD_CONDITION = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(ROAD_OWNER = as.factor(ROAD_OWNER)) %>%left_join(crash_metadata %>% filter(Column.Name == 'ROAD_OWNER') %>% select(Code,Readable), by = c('ROAD_OWNER'='Code')) %>% mutate(ROAD_OWNER = Readable, Readable = NULL)
+##Not sure about ROADWAY_COUNTY data, this does not seem clear
+#crash_data <- crash_data %>% mutate(ROADWAY_COUNTY = as.factor(ROADWAY_COUNTY)) %>%left_join(crash_metadata %>% filter(Column.Name == 'ROADWAY_COUNTY') %>% select(Code,Readable), by = c('ROADWAY_COUNTY'='Code')) %>% mutate(ROADWAY_COUNTY = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(SCH_BUS_IND = as.factor(SCH_BUS_IND)) %>%left_join(crash_metadata %>% filter(Column.Name == 'SCH_BUS_IND') %>% select(Code,Readable), by = c('SCH_BUS_IND'='Code')) %>% mutate(SCH_BUS_IND = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(SCH_ZONE_IND = as.factor(SCH_ZONE_IND)) %>%left_join(crash_metadata %>% filter(Column.Name == 'SCH_ZONE_IND') %>% select(Code,Readable), by = c('SCH_ZONE_IND'='Code')) %>% mutate(SCH_ZONE_IND = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(SPEC_JURIS_CD = as.factor(SPEC_JURIS_CD)) %>%left_join(crash_metadata %>% filter(Column.Name == 'SPEC_JURIS_CD') %>% select(Code,Readable), by = c('SPEC_JURIS_CD'='Code')) %>% mutate(SPEC_JURIS_CD = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(TCD_FUNC_CD = as.factor(TCD_FUNC_CD)) %>%left_join(crash_metadata %>% filter(Column.Name == 'TCD_FUNC_CD') %>% select(Code,Readable), by = c('TCD_FUNC_CD'='Code')) %>% mutate(TCD_FUNC_CD = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(TCD_TYPE = as.factor(TCD_TYPE)) %>%left_join(crash_metadata %>% filter(Column.Name == 'TCD_TYPE') %>% select(Code,Readable), by = c('TCD_TYPE'='Code')) %>% mutate(TCD_TYPE = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(TFC_DETOUR_IND = as.factor(TFC_DETOUR_IND)) %>%left_join(crash_metadata %>% filter(Column.Name == 'TFC_DETOUR_IND') %>% select(Code,Readable), by = c('TFC_DETOUR_IND'='Code')) %>% mutate(TFC_DETOUR_IND = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(URBAN_RURAL = as.factor(URBAN_RURAL)) %>%left_join(crash_metadata %>% filter(Column.Name == 'URBAN_RURAL') %>% select(Code,Readable), by = c('URBAN_RURAL'='Code')) %>% mutate(URBAN_RURAL = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WEATHER = as.factor(WEATHER)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WEATHER') %>% select(Code,Readable), by = c('WEATHER'='Code')) %>% mutate(WEATHER = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WORK_ZONE_LOC = as.factor(WORK_ZONE_LOC)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WORK_ZONE_LOC') %>% select(Code,Readable), by = c('WORK_ZONE_LOC'='Code')) %>% mutate(WORK_ZONE_LOC = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WORK_ZONE_TYPE = as.factor(WORK_ZONE_TYPE)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WORK_ZONE_TYPE') %>% select(Code,Readable), by = c('WORK_ZONE_TYPE'='Code')) %>% mutate(WORK_ZONE_TYPE = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WORKERS_PRES = as.factor(WORKERS_PRES)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WORKERS_PRES') %>% select(Code,Readable), by = c('WORKERS_PRES'='Code')) %>% mutate(WORKERS_PRES = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_CLOSE_DETOUR = as.factor(WZ_CLOSE_DETOUR)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_CLOSE_DETOUR') %>% select(Code,Readable), by = c('WZ_CLOSE_DETOUR'='Code')) %>% mutate(WZ_CLOSE_DETOUR = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_FLAGGER = as.factor(WZ_FLAGGER)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_FLAGGER') %>% select(Code,Readable), by = c('WZ_FLAGGER'='Code')) %>% mutate(WZ_FLAGGER = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_LAW_OFFCR_IND = as.factor(WZ_LAW_OFFCR_IND)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_LAW_OFFCR_IND') %>% select(Code,Readable), by = c('WZ_LAW_OFFCR_IND'='Code')) %>% mutate(WZ_LAW_OFFCR_IND = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_LN_CLOSURE = as.factor(WZ_LN_CLOSURE)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_LN_CLOSURE') %>% select(Code,Readable), by = c('WZ_LN_CLOSURE'='Code')) %>% mutate(WZ_LN_CLOSURE = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_MOVING = as.factor(WZ_MOVING)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_MOVING') %>% select(Code,Readable), by = c('WZ_MOVING'='Code')) %>% mutate(WZ_MOVING = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_OTHER = as.factor(WZ_OTHER)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_OTHER') %>% select(Code,Readable), by = c('WZ_OTHER'='Code')) %>% mutate(WZ_OTHER = Readable, Readable = NULL)
+crash_data <- crash_data %>% mutate(WZ_SHLDER_MDN = as.factor(WZ_SHLDER_MDN)) %>%left_join(crash_metadata %>% filter(Column.Name == 'WZ_SHLDER_MDN') %>% select(Code,Readable), by = c('WZ_SHLDER_MDN'='Code')) %>% mutate(WZ_SHLDER_MDN = Readable, Readable = NULL)
+
 #write.csv(crashdata, "~/all_crash_data.csv") #write csv file locally if needed (this is commented out)
-crash_metadata <- read.csv("~/Development/PittsburghCrashData/crashdatadictionary.csv") %>% tbl_df()
-
-rm(crash_2014_text,crash_2013_text,crash_2012_text,crash_2011_text,crash_2010_text,crash_2009_text,crash_2008_text,crash_2007_text,crash_2006_text,crash_2005_text,crash_2004_text,metadata_text)
