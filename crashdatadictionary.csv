@@ -109,8 +109,8 @@ ILLUMINATION,Code that defines lighting at crash scene,FACTOR,8,Other
 ILLUMINATION,Code that defines lighting at crash scene,FACTOR,9,Unknown (expired)
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,0,Mid-block
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,1,Four way intersection
-INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,2,ÒTÓ intersection
-INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,3,ÒYÓ intersection
+INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,2,T Intersection
+INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,3,Y Intersection
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,4,Traffic circle or Round About
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,5,Multi-leg intersection
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,6,On ramp
@@ -119,8 +119,7 @@ INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,8,Crossover
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,9,Railroad crossing
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,10,Other
 INTERSECT_TYPE,Code that defines the Intersection Type,FACTOR,99,Unknown (expired)
-LANE_CLOSED,Was there a lane closure? (Y/N),FACTOR,Y,1
-LANE_CLOSED,Was there a lane closure? (Y/N),FACTOR,N,0
+LANE_CLOSED,Was there a lane closure? (Y/N),NUMBER,,
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,1,North
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,2,South
 LN_CLOSE_DIR,Direction of traffic in closed lane (s),FACTOR,3,East
@@ -157,14 +156,14 @@ RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,4,"Slag, Gravel, or S
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,5,Dirt
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,8,Other
 RDWY_SURF_TYPE_CD,Code for the Roadway surface type,FACTOR,9,Unknown
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,1,On roadway
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,2,Shoulder
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,3,Median
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,4,Roadside (off trafficway; on vehicle area)
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,5,Outside trafficway (in area not meant for vehicles)
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,6,In parking lane
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,7,Gore (intersection of ramp and highway)
-RELATION_TO_ROAD,Code for the crashÕs relativity to the road,FACTOR,9,Unknown
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,1,On roadway
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,2,Shoulder
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,3,Median
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,4,Roadside (off trafficway; on vehicle area)
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,5,Outside trafficway (in area not meant for vehicles)
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,6,In parking lane
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,7,Gore (intersection of ramp and highway)
+RELATION_TO_ROAD,Code for the crashês relativity to the road,FACTOR,9,Unknown
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,0,Dry
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,1,Wet
 ROAD_CONDITION,Roadway Surface Condition Code,FACTOR,2,Sand/ mud/ dirt/ oil/ or gravel
@@ -266,8 +265,8 @@ BUS_COUNT,Total amount of Buses involved,NUMBER,,
 COMM_VEH_COUNT,Total Commercial vehicles involved,NUMBER,,
 CRASH_CRN,Crash Record Number,NUMBER,,
 CRN,Crash Record Number,NUMBER,,
-DEC_LAT,Decimal Latitude for SRÕs,NUMBER,Degrees.Decimal Degrees,
-DEC_LONG,Decimal Longitude for SRÕs,NUMBER,Degrees.Decimal Degrees,
+DEC_LAT,Decimal Latitude for SRês,NUMBER,Degrees.Decimal Degrees,
+DEC_LONG,Decimal Longitude for SRês,NUMBER,Degrees.Decimal Degrees,
 DRIVER_COUNT_16YR,Total amount of 16 year old drivers,NUMBER,,
 DRIVER_COUNT_17YR,Total amount of 17 year old drivers,NUMBER,,
 DRIVER_COUNT_65_74YR,Total amount of 65 to 74 year old drivers,NUMBER,,
